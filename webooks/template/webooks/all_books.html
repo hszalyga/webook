@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista książek</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Tytuł</th>
+        <th>Autor</th>
+        <th>Data publikacji</th>
+        <th>Średnia ocena</th>
+        <th>Ilość ocen</th>
+        <th>Obraz</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for book in books %}
+        	<tr>
+                <td>{{ book.title|title }}</td>
+                <td>{{ book.authors }}</td>
+                <td>{{ book.original_publication_year|date:' Y' }}</td>
+                <td>{{ book.average_rating|floatformat:2 }}</td>
+                <td>{{ book.rating_count }}</td>
+            </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
