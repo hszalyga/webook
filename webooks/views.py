@@ -7,4 +7,4 @@ def all_books(request):
     context = {
         'books': found_books
     }
-    return render(request, 'book/all_books.html', context)
+    return render(request, 'webooks/all_books.html', context)

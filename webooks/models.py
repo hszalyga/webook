@@ -17,7 +17,7 @@ class Book:
     def find_all_books():
         books_list = []
 
-        with open('webooks/migrations/books.csv', r, encoding='utf8') as all_books_file:
+        with open('webooks/migrations/books.csv', 'r', encoding='utf8') as all_books_file:
             reader = csv.DictReader(all_books_file, delimiter=',')
 
             for row in reader:
@@ -25,9 +25,9 @@ class Book:
                     row['book_id'],
                     row['title'],
                     row['authors'],
-                    datetime.datetime.strptime(row['published_date'], '%Y'),
+                    row['original_publication_year'],
                     float(row['average_rating']),
-                    int(row['rating_count']),
+                    int(row.get('ratings_count', 0)),
                     row['image_url'],
                 ))
 
