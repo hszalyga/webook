@@ -4,10 +4,11 @@ import datetime
 
 # Create your models here.
 class Book:
-    def __init__(self, book_id, title, authors, original_publication_year, average_rating, rating_count, image_url):
+    def __init__(self, book_id, title, authors, language, original_publication_year, average_rating, rating_count, image_url):
         self.book_id = book_id
         self.title = title
         self.authors = authors
+        self.language = language
         self.original_publication_year = original_publication_year
         self.average_rating = average_rating
         self.rating_count = rating_count
@@ -25,6 +26,7 @@ class Book:
                     row['book_id'],
                     row['title'],
                     row['authors'],
+                    row['language_code'],
                     row['original_publication_year'],
                     float(row['average_rating']),
                     int(row.get('ratings_count', 0)),

@@ -1,0 +1,24 @@
+{% extends 'webook_base.html' %}
+
+{% block page_title %}
+    Szczegóły książki
+{% endblock %}
+
+{% block page_content %}
+
+    <div class="uk-card uk-card-default uk-border-rounded">
+         <div class="uk-card-header">
+         {{ book.title }}
+         </div>
+        <div class="uk-card-body">
+            {{ book.language }}
+            {{ book.original_publication_year }}
+            {{ book.average_rating }}
+            {{ book.rating_count }}
+
+        </div>
+    </div>
+
+
+{% endblock %}
+

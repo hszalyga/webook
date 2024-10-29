@@ -9,10 +9,13 @@
     <tr>
         <th>Title</th>
         <th>Author</th>
+        <th>Laguage</th>
         <th>Publication year</th>
         <th>Average rating</th>
         <th>Rating count</th>
         <th>Cover</th>
+        <th>Action</th>
+
     </tr>
     </thead>
     <tbody>
@@ -20,9 +23,14 @@
         	<tr>
                 <td>{{ book.title|title }}</td>
                 <td>{{ book.authors }}</td>
+                <td>{{ book.language }}</td>
                 <td>{{ book.original_publication_year|slice:":4" }}</td>
                 <td>{{ book.average_rating|floatformat:2 }}</td>
                 <td>{{ book.rating_count }}</td>
+                <td>{{ book.cover }}</td>
+                <td>
+                    <a href="{%  url 'book_details_url' book_id=book.book_id %}">Details</a>
+                </td>
             </tr>
     {% endfor %}
     </tbody>
