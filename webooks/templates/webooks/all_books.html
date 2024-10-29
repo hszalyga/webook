@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista książek</title>
-</head>
-<body>
-<table>
+{%  extends 'webook_base.html' %}
+{% block page_title %}
+    Book list
+{% endblock %}
+
+{% block page_content %}
+<table class="uk-table uk-table-striped">
     <thead>
     <tr>
         <th>Title</th>
@@ -30,3 +29,12 @@
 </table>
 </body>
 </html>
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista książek</title>
+</head>
+<body>
