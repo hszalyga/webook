@@ -15,6 +15,18 @@
 
 </head>
 <body>
-{% block page_content %}{% endblock %}
+
+<div uk-height-viewport="offset-bottom: 0" class="uk-flex">
+        <div class="uk-width-medium side-bar uk-flex uk-flex-column uk-padding-small gap-small">
+            {% include 'menu_button.html' with url_name='all_books_url' icon='home' name='Home' %}
+            {% include 'menu_button.html' with url_name='all_books_url' icon='album' name='Books' %}
+        </div>
+
+        <div class="uk-width-expand">
+            <div class="uk-container ">
+                {% block page_content %}{% endblock %}>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

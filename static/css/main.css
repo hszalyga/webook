@@ -1,8 +1,19 @@
 html {
     height: 100%;
+    color: dimgrey;
+    background: black;
 }
 
-body{
+body {
     height: 100%;
+}
+
+.side-bar { color: black;
+    background: goldenrod;
+}
+
+.gap-small {
+    gap: 15px;
+}
 
 }
