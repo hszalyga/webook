@@ -18,3 +18,4 @@ def book_details(request, book_id):
             }
             return render(request,  'webooks/book_details.html', context)
     return HttpResponseNotFound('Film nie został znaleziony.')
+

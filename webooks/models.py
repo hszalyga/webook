@@ -4,7 +4,7 @@ import datetime
 
 # Create your models here.
 class Book:
-    def __init__(self, book_id, title, authors, language, original_publication_year, average_rating, rating_count, image_url):
+    def __init__(self, book_id, title, authors, language, original_publication_year, average_rating, rating_count, small_image_url):
         self.book_id = book_id
         self.title = title
         self.authors = authors
@@ -12,7 +12,7 @@ class Book:
         self.original_publication_year = original_publication_year
         self.average_rating = average_rating
         self.rating_count = rating_count
-        self.image_url = image_url
+        self.image_url = small_image_url
 
     @staticmethod
     def find_all_books():
@@ -30,7 +30,8 @@ class Book:
                     row['original_publication_year'],
                     float(row['average_rating']),
                     int(row.get('ratings_count', 0)),
-                    row['image_url'],
+                    row['small_image_url'],
                 ))
 
         return books_list
+
