@@ -1,3 +1,9 @@
+header {
+  background-color: goldenrod;
+  text-align: center;
+  padding: 20px;
+}
+
 html {
     height: 100%;
     color: dimgrey;
@@ -16,4 +22,34 @@ body {
     gap: 15px;
 }
 
+
+.uk-button-search {
+    color: goldenrod;
+    background: black;
+    border: transparent;
+}
+.uk-icon-link {
+    color: goldenrod;
+}
+.uk-navbar {
+    float: right;
+}
+.uk-button {
+    background: black;
+}
+
+tr:nth-child(odd)>td {
+    background-color: goldenrod;
+    border: transparent;
+}
+.uk-table td {
+    color: white;
+}
+.uk-table th {
+    color: white;
+}
+.bottomright {
+  position: static;
+  bottom: 8px;
+  right: 16px;
 }

@@ -14,18 +14,43 @@
     <script src="{% static 'js/uikit-icons.min.js' %}"></script>
 
 </head>
+
+<header>
+    <div class="uk-heading-divider uk-heading-large">
+        <span>WeBook!
+            <span class="uk-hidden">
+                <br>More text
+            </span>
+        </span>
+    </div>
+    <div class="offset-right: 0">
+        <div class="uk-margin">
+            <nav class="uk-navbar uk-padding-small ">
+            <div class="uk-navbar-content uk-hidden-medium bottomright">
+                    <form class="uk-form uk-margin-remove uk-display-inline-block">
+                        <input type="text" placeholder="Title">
+                        <button class="uk-button-search">Search for a book!
+                        </button>
+                    </form>
+            </div>
+            </nav>
+            </div>
+    </div>
+</header>
+
 <body>
 
-<div uk-height-viewport="offset-bottom: 0" class="uk-flex">
+<div uk-height-viewport="offset-bottom: 0" class="uk-flex" >
         <div class="uk-width-medium side-bar uk-flex uk-flex-column uk-padding-small gap-small">
             {% include 'menu_button.html' with url_name='all_books_url' icon='home' name='Home' %}
-            {% include 'menu_button.html' with url_name='all_books_url' icon='album' name='Books' %}
+            {% include 'menu_button.html' with url_name='all_books_url' icon='album' name='Books catalogue' %}
             {% include 'menu_button.html' with url_name='all_books_url' icon='album' name='Credits' %}
+            {% include 'menu_button.html' with url_name='all_books_url' icon='info' name='About me' %}
         </div>
 
-        <div class="uk-width-expand">
-            <div class="uk-container ">
-                {% block page_content %}{% endblock %}>
+        <div class="uk-width-expand" >
+            <div class="uk-container">
+                {% block page_content %}{% endblock %}
             </div>
         </div>
     </div>
