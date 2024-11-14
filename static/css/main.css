@@ -53,3 +53,6 @@ tr:nth-child(odd)>td {
   bottom: 8px;
   right: 16px;
 }
+.uk-heading-divider {
+    color: black;
+}
