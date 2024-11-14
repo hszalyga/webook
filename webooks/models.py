@@ -32,14 +32,14 @@ class Book(models.Model):
 
             for row in reader:
                 books_list.append(Book(
-                    row['book_id'],
-                    row['title'],
-                    row['authors'],
-                    row['language_code'],
-                    row['original_publication_year'],
-                    float(row['average_rating']),
-                    int(row.get('ratings_count', 0)),
-                    row['small_image_url'],
+                    book_id = row['book_id'],
+                    title = row['title'],
+                    authors = row['authors'],
+                    language = row['language_code'],
+                    original_publication_year = row['original_publication_year'],
+                    average_rating = float(row['average_rating']),
+                    rating_count = int(row.get('ratings_count', 0)),
+                    small_image_url = row['small_image_url'],
                 ))
 
         return books_list
