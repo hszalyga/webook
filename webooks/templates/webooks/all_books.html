@@ -4,6 +4,12 @@
 {% endblock %}
 
 {% block page_content %}
+    <div class="uk-flex uk-flex-between uk-margin-large-top">
+        <div>Liczba filmów: {{ aggregation_data.id__count }}</div>
+        <div>Średnia ocena: {{ aggregation_data.average_rating__avg|floatformat:2 }} / 5.00</div>
+        <div>Najwyższa ocena: {{ aggregation_data.average_rating__max }} / 5.00</div>
+        <div>Najniższa ocena: {{ aggregation_data.average_rating__min }} / 5.00</div>
+    </div>
 <table class="uk-table uk-table-striped">
     <thead>
     <tr>
