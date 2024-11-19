@@ -4,45 +4,55 @@
 {% endblock %}
 
 {% block page_content %}
-    <div class="uk-flex uk-flex-between uk-margin-large-top">
-        <div>Liczba filmów: {{ aggregation_data.id__count }}</div>
-        <div>Średnia ocena: {{ aggregation_data.average_rating__avg|floatformat:2 }} / 5.00</div>
-        <div>Najwyższa ocena: {{ aggregation_data.average_rating__max }} / 5.00</div>
-        <div>Najniższa ocena: {{ aggregation_data.average_rating__min }} / 5.00</div>
-    </div>
-<table class="uk-table uk-table-striped">
-    <thead>
-    <tr>
-        <th>Cover</th>
-        <th>Title</th>
-        <th>Authors</th>
-        <th>Language</th>
-        <th>Publication year</th>
-        <th>Average rating</th>
-        <th>Ratings count</th>
-        <th>Action</th>
-
-    </tr>
-    </thead>
-    <tbody>
-    {% for book in books %}
-        	<tr>
-                <td>
-                    {{ book.cover }}</td>
-                </td>
-                <td>{{ book.title }}</td>
-                <td>{{ book.authors }}</td>
-                <td>{{ book.language_code }}</td>
-                <td>{{ book.original_publication_year|slice:":4" }}</td>
-                <td>{{ book.average_rating|floatformat:2 }}</td>
-                <td>{{ book.ratings_count }}</td>
-                <td>
-                    <a href="{%  url 'book_details_url' id=book.id %}">Details</a>
-                </td>
-            </tr>
-    {% endfor %}
-    </tbody>
-</table>
+    <!--<div class="uk-flex uk-flex-between uk-margin-large-top">
+        <div>Database contain:</div>
+        <div>Books count: {{ aggregation_data.id__count }}</div>
+        <div>Average rating: {{ aggregation_data.statistics__average_rating__avg|floatformat:2 }} / 5.00</div>
+        <div>Highest rate: {{ aggregation_data.statistics__average_rating__max }} / 5.00</div>
+        <div>Lowest rate: {{ aggregation_data.statistics__average_rating__min }} / 5.00</div>
+    </div>-->
+    <form class="uk-width-1-1 uk-flex gap-small uk-margin-medium-top">
+        <input
+                placeholder="Search book by name..."
+                id="title" name="title" class="uk-input uk-border-rounded uk-margin-small-right" >
+        <button type="submit" class="uk-button uk-button-default uk-border-rounded">
+            Search!
+        </button>
+    </form>
+    {% if filter_title %}
+        <span>Applied title filter: {{ filter_title }}</span>
+    {% endif %}
+    <table class="uk-table uk-table-striped">
+        <thead>
+        <tr>
+            <th>Cover</th>
+            <th>Title</th>
+            <th>Authors</th>
+            <th>Language</th>
+            <th>Publication year</th>
+            <th>Average rating</th>
+            <th>Ratings count</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+                <tr>
+                    <td>
+                        {{ book.cover }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.authors }}</td>
+                    <td>{{ book.language_code }}</td>
+                    <td>{{ book.original_publication_year|slice:":4" }}</td>
+                    <td>{{ book.statistics.average_rating|floatformat:2 }}</td>
+                    <td>{{ book.statistics.ratings_count }}</td>
+                    <td>
+                        <a href="{%  url 'book_details_url' id=book.id %}">Details</a>
+                    </td>
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
 
 <!DOCTYPE html>

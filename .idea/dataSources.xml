@@ -8,7 +8,7 @@
       <jdbc-url>jdbc:sqlserver://morfeusz.wszib.edu.pl;database=hszalyga</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="db" uuid="3ab9851a-8007-4f31-b022-20e7cfbd7033">
+    <data-source source="LOCAL" name="db" uuid="c304e5db-e097-4820-b621-e8298491ce3d">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>

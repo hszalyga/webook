@@ -1,0 +1,26 @@
+{% extends 'webook_base.html' %}
+
+{% block page_title %}
+    Add book
+{% endblock %}
+
+{% block page_content %}
+    <form method="POST" class="uk-form-stacked">
+        <div class="uk-margin">
+            <label class="uk-form-label" for="book_id">Book ID</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="book_id" name="book_id" type="text" placeholder="Book ID">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="title">Book tile</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="title" name="title" type="text" placeholder="Title...">
+            </div>
+        </div>
+
+        <button class="uk-button uk-button-default">
+            Save!
+        </button>
+    </form>
+{% endblock %}
