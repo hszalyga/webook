@@ -1,0 +1,17 @@
+{% extends 'webook_base.html' %}
+
+{% block page_title %}
+    Read books
+{% endblock %}
+
+{% block page_content %}
+
+    {% for collection in collections %}
+        {{ collection.name }}
+        {% for book in collection.books %}
+        <div class="uk-margin-large-left">
+            {{ book.title }}
+        </div>
+    {% endfor %}
+
+{% endblock %}
