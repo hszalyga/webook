@@ -4,8 +4,10 @@ from django.http import HttpResponseNotFound
 from django.db.models import Avg, Min, Max, Count
 from .forms import BookForm
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 # Create your views here.
+@login_required
 def all_books(request):
     title = request.GET.get('title')
 
@@ -23,6 +25,7 @@ def all_books(request):
     }
     return render(request, 'webooks/all_books.html', context)
 
+@login_required
 def book_details(request, id):
     found_book = Book.objects.get(pk=id)
     if not found_book:
@@ -32,6 +35,7 @@ def book_details(request, id):
     }
     return render(request, 'webooks/book_details.html', context)
 
+@login_required
 def add_book(request):
     if request.method == 'POST':
         form = BookForm(request.POST)
@@ -57,15 +61,16 @@ def add_book(request):
     }
     return render(request, 'webooks/add_book.html', context)
 
+@login_required
 def book_read(request):
-    user = User.objects.all()[0]
+    logged_user = request.user
 
     if request.method == 'POST':
         name = request.POST['collection_name']
-        BookRead.objects.create(name=name, owner=user)
+        BookRead.objects.create(name=name, owner=logged_user)
         return redirect('book_read_url')
 
-    book_reads = BookRead.objects.filter(owner=user).annotate(book_count=Count('books'))
+    book_reads = BookRead.objects.filter(owner=logged_user).annotate(book_count=Count('books'))
     context = {
         'collections': book_reads
     }
