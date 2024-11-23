@@ -46,9 +46,9 @@ def add_book(request):
                 authors=book_data['authors'],
                 language_code=book_data['language_code'],
                 original_publication_year=book_data['original_publication_year'],
-                statistics=stats,
                 small_image_url =book_data['small_image_url'],
                 image_url =book_data['image_url'],
+                statistics=stats
             )
         return redirect('all_books_url')
     form = BookForm()
@@ -59,8 +59,13 @@ def add_book(request):
 
 def book_read(request):
     user = User.objects.all()[0]
-    book_reads = BookRead.objects.filter(owner=user).annotate(book_count=Count('books'))
 
+    if request.method == 'POST':
+        name = request.POST['collection_name']
+        BookRead.objects.create(name=name, owner=user)
+        return redirect('book_read_url')
+
+    book_reads = BookRead.objects.filter(owner=user).annotate(book_count=Count('books'))
     context = {
         'collections': book_reads
     }

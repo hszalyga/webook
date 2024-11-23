@@ -4,13 +4,13 @@
 {% endblock %}
 
 {% block page_content %}
-    <!--<div class="uk-flex uk-flex-between uk-margin-large-top">
+    <div class="uk-flex uk-flex-between uk-margin-large-top">
         <div>Database contain:</div>
         <div>Books count: {{ aggregation_data.id__count }}</div>
         <div>Average rating: {{ aggregation_data.statistics__average_rating__avg|floatformat:2 }} / 5.00</div>
         <div>Highest rate: {{ aggregation_data.statistics__average_rating__max }} / 5.00</div>
         <div>Lowest rate: {{ aggregation_data.statistics__average_rating__min }} / 5.00</div>
-    </div>-->
+    </div>
     <form class="uk-width-1-1 uk-flex gap-small uk-margin-medium-top">
         <input
                 placeholder="Search book by name..."

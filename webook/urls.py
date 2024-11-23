@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='webook/')),
     path('webook/', include('webooks.urls')),
+    path('users/', include('users.urls')),
+    path('users/', include('django.contrib.auth.urls')),
 ]

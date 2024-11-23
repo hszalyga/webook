@@ -24,15 +24,6 @@
         </span>
     </div>
 </header>
-
-    <div class="uk-flex uk-flex-between uk-margin-small-top uk-margin-small-bottom">
-        <div>Database contain:</div>
-        <div>Books count: {{ aggregation_data.id__count }}</div>
-        <div>Average rating: {{ aggregation_data.statistics__average_rating__avg|floatformat:2 }} / 5.00</div>
-        <div>Highest rate: {{ aggregation_data.statistics__average_rating__max }} / 5.00</div>
-        <div>Lowest rate: {{ aggregation_data.statistics__average_rating__min }} / 5.00</div>
-    </div>
-
 <body>
 
 <div uk-height-viewport="offset-bottom: 0" class="uk-flex" >

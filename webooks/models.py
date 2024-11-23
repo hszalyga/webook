@@ -13,9 +13,9 @@ class Book(models.Model):
     authors = models.CharField(max_length=1000)
     language_code = models.CharField(max_length=10)
     original_publication_year = models.IntegerField(validators=[MaxValueValidator(4)])
-    statistics = models.OneToOneField(BookStatistics, on_delete=models.CASCADE)
     small_image_url = models.URLField()
     image_url = models.URLField()
+    statistics = models.OneToOneField(BookStatistics, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
