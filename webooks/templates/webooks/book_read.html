@@ -11,15 +11,15 @@
             <label class="uk-form-label" for="collection_name"> Text</label>
             <div class="uk-form-controls">
                 <input class="uk-input" id="collection_name" name="collection_name" type="text"
-                       placeholder="Name of read books collection">
-                <button class="uk-button uk-button-default">
+                       placeholder="Name of read books collection" style="background: goldenrod">
+                <button class="uk-button uk-button-default"  style="color: goldenrod">
                     Add read books collection!
                 </button>
             </div>
         </div>
     </form>
     {% for collection in collections %}
-        <div>
+        <div class="uk-card-body" style="background: goldenrod; color: black">
             {{ collection.name }} <a href="{% url 'collection_details_url' id=collection.id %}">Details</a>
             {% for book in collection.books.all %}
                 <div class="uk-margin-large-left">

@@ -4,18 +4,18 @@
 {% endblock %}
 
 {% block page_content %}
-    <div class="uk-flex uk-flex-between uk-margin-large-top">
+    <div class="uk-flex uk-flex-between uk-margin-large-top"  style="color: white">
         <div>Database contain:</div>
         <div>Books count: {{ aggregation_data.id__count }}</div>
         <div>Average rating: {{ aggregation_data.statistics__average_rating__avg|floatformat:2 }} / 5.00</div>
         <div>Highest rate: {{ aggregation_data.statistics__average_rating__max }} / 5.00</div>
         <div>Lowest rate: {{ aggregation_data.statistics__average_rating__min }} / 5.00</div>
     </div>
-    <form class="uk-width-1-1 uk-flex gap-small uk-margin-medium-top">
-        <input
+    <form class="uk-width-1-1 uk-flex gap-small uk-margin-medium-top"  style="color: goldenrod">
+        <input  style="background: goldenrod; color: black"
                 placeholder="Search book by name..."
-                id="title" name="title" class="uk-input uk-border-rounded uk-margin-small-right" >
-        <button type="submit" class="uk-button uk-button-default uk-border-rounded">
+                id="title" name="title" class="uk-input uk-border-rounded uk-margin-small-right">
+        <button type="submit" class="uk-button uk-button-default uk-border-rounded"  style="background: goldenrod">
             Search!
         </button>
     </form>

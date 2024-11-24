@@ -6,19 +6,26 @@
 
 {% block page_content %}
 
-    <div class="uk-card uk-card-default uk-border-rounded">
-         <div class="uk-card-header">
+    <div class="uk-card uk-card-default uk-border-rounded" style="background: goldenrod"
+         xmlns="http://www.w3.org/1999/html">
+         <div class="uk-card-header uk-heading-medium" style="color: black">
          {{ book.title }}
          </div>
-        <div class="uk-card-body">
-            {{ book.language }}
-            {{ book.original_publication_year }}
-            {{ book.average_rating }}
-            {{ book.rating_count }}
+        <div class="uk-card-body" style="background: goldenrod">
             <img class="uk-align-right" src={{ book.image_url }}>
+             <dl class="uk-card" style="color: black">
+                 <dt>Authors:</dt>
+                    <dd>{{ book.authors }}</dd>
+                <dt>Original book laguage:</dt>
+                    <dd>{{ book.language_code }}</dd>
+                <dt>Publication year:</dt> 
+                    <dd>{{ book.original_publication_year }}</dd>
+                <dt>Average ratings: </dt>
+                    <dd>{{ book.statistics.average_rating }}</dd>
+                <dt>Ratings count: </dt>
+                    <dd>{{ book.statistics.ratings_count }}</dd>
+             </dl>
         </div>
     </div>
-
-
 {% endblock %}
 

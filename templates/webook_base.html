@@ -16,13 +16,7 @@
 </head>
 
 <header>
-    <div class="uk-heading-divider uk-heading-large">
-        <span>WeBook!
-            <span class="uk-hidden">
-                <br>More text
-            </span>
-        </span>
-    </div>
+        <img src="{% static 'images/title1.jpg' %}" alt="WeBook!" style="max-width: 25%; height: auto; display: block; margin: 0 auto;">
 </header>
 <body>
 
@@ -35,25 +29,20 @@
         </div>
 
         <div class="uk-width-expand">
-            <nav class="uk-navbar-container" style="background: black">
+            <nav class="uk-navbar-container uk-align-right" style="background: black">
                 <div class="uk-container">
                     <div class="uk-navbar">
                         <div class="uk-navbar-left">
                             <span uk-icon="users"></span>
                             {% if user.is_authenticated %}
-                                    <ul class="uk-navbar-nav">
-                                        <li class="uk-navbar-item uk-flex">
+                                    <ul class="uk-navbar-nav ">
+                                        <li class="uk-navbar-item uk-flex uk-padding">
                                             {{ user.get_username|upper }}
                                         </li>
-                                        {%  if user.is_superuser %}
-                                            <a href="{%  url 'add_book_url' %}">
-                                                Add book
-                                            </a>
-                                        {%  endif %}
+
                                     </ul>
                             {% endif %}
                         </div>
-
                         <div class="uk-navbar-right">
                             <ul class="uk-navbar-nav">
                                 {% if user.is_authenticated %}
