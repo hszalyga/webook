@@ -6,7 +6,7 @@ class BookForm(forms.Form):
     title = forms.CharField(label='Book title', max_length=1000)
     authors = forms.CharField(label='Book authors',max_length=1000)
     language_code = forms.CharField(label='Book language',max_length=10)
-    original_publication_year = forms.IntegerField(label='Book publication year',validators=[MaxValueValidator(4)])
+    original_publication_year = forms.IntegerField(label='Book publication year',validators=[MinValueValidator(1000), MaxValueValidator(9999)])
     # average_rating = forms.FloatField(label='Book average rating',validators=[MinValueValidator(0), MaxValueValidator(10)])
     # ratings_count = forms.IntegerField(label='Book ratings count',validators=[MinValueValidator(0)])
     small_image_url = forms.URLField(label='Book cover small image URL')

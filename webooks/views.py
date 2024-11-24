@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Book, BookStatistics, BookRead
-from django.http import HttpResponseNotFound
+from django.http import HttpResponseNotFound, HttpResponseForbidden
 from django.db.models import Avg, Min, Max, Count
 from .forms import BookForm
 from django.contrib.auth.models import User
@@ -16,7 +16,8 @@ def all_books(request):
     else:
         found_books = Book.objects.all()[:1000]
 
-    found_books_aggregation = found_books.aggregate(Avg('statistics__average_rating'), Min('statistics__average_rating'),
+    found_books_aggregation = found_books.aggregate(Avg('statistics__average_rating'),
+                                                    Min('statistics__average_rating'),
                                                     Max('statistics__average_rating'), Count('id'))
     context = {
         'books': found_books,
@@ -36,6 +37,7 @@ def book_details(request, id):
     return render(request, 'webooks/book_details.html', context)
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def add_book(request):
     if request.method == 'POST':
         form = BookForm(request.POST)
@@ -75,3 +77,16 @@ def book_read(request):
         'collections': book_reads
     }
     return render(request, 'webooks/book_read.html', context)
+
+@login_required
+def collection_details(request, id):
+    login_user = request.user
+    collection = BookRead.objects.get(pk=id)
+    if collection.owner.id != login_user.id:
+        return HttpResponseForbidden("Nie masz dostępu do tej kolekcji!")
+    return render(request, 'webooks/collection_details.html', {
+        'collection': collection
+    })
+
+def about_me(request):
+    return render(request, 'webooks/about_me.html')

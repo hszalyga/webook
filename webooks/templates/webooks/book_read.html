@@ -8,7 +8,7 @@
     <form method="POST">
         {% csrf_token %}
         <div class="uk-margin">
-            <label class="uk-form-label" for="form-stacked-text"> Text</label>
+            <label class="uk-form-label" for="collection_name"> Text</label>
             <div class="uk-form-controls">
                 <input class="uk-input" id="collection_name" name="collection_name" type="text"
                        placeholder="Name of read books collection">
@@ -19,14 +19,14 @@
         </div>
     </form>
     {% for collection in collections %}
-        {{ collection.name }}
-        {% for book in collection.books.all %}
-
-            <div class="uk-margin-large-left">
-            {{ book.title }}
-            </div>
-        {% endfor %}
+        <div>
+            {{ collection.name }} <a href="{% url 'collection_details_url' id=collection.id %}">Details</a>
+            {% for book in collection.books.all %}
+                <div class="uk-margin-large-left">
+                    {{ book.title }}
+                </div>
+            {% endfor %}
+        </div>
     {% endfor %}
-
 
 {% endblock %}

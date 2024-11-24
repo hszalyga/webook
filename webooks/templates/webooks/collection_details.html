@@ -1,0 +1,10 @@
+{% extends 'webook_base.html' %}
+
+{% block page_content %}
+    <h1>{{ collection.name }}</h1>
+
+    {% for book in collection.book.all %}
+        <div>{{ books.title }}</div>
+    {% endfor %}
+
+{% endblock %}
