@@ -12,7 +12,7 @@ class Book(models.Model):
     title = models.CharField(max_length=1000)
     authors = models.CharField(max_length=1000)
     language_code = models.CharField(max_length=10)
-    original_publication_year = models.IntegerField(validators=[MaxValueValidator(4)])
+    original_publication_year = models.IntegerField(validators=[MinValueValidator(1000), MaxValueValidator(9999)])
     small_image_url = models.URLField()
     image_url = models.URLField()
     statistics = models.OneToOneField(BookStatistics, on_delete=models.CASCADE)

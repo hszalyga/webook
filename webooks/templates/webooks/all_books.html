@@ -39,7 +39,7 @@
         {% for book in books %}
                 <tr>
                     <td>
-                        {{ book.cover }}</td>
+                        <img src={{ book.small_image_url }}></td>
                     <td>{{ book.title }}</td>
                     <td>{{ book.authors }}</td>
                     <td>{{ book.language_code }}</td>
